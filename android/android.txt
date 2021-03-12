@@ -1,0 +1,144 @@
+import java.util.Scanner;
+class Seller
+{
+      String sellername;
+      float sellerliter;
+      static float selleramount;
+      static int sellerrs = 40;
+
+
+
+    void sellerdetails(String name, float liy)
+    {
+         sellername = name;
+         sellerliter = liy;
+
+    }
+
+    void sellerdisplay()
+    {
+         System.out.println("sellername :" +sellername);
+         System.out.println("sellerliter :" +sellerliter);
+    }
+
+    void sellercalculation()
+    {
+
+
+        selleramount = sellerliter * sellerrs;
+        System.out.println("seller getting amount:" +selleramount);
+    }
+}
+
+
+class Buyer
+{
+    String buyername;
+    float buyerliter;
+    static float buyeramount;
+    static int buyerrs = 50;
+
+
+    void buyerdetails(String name, float ley)
+    {
+        buyername = name;
+        buyerliter = ley;
+    }
+
+
+
+    void buyerdisplay()
+    {
+        System.out.println("buyername:" +buyername);
+        System.out.println("buyerliter:" +buyerliter);
+    }
+
+       void buyercalculation()
+       {
+
+           buyeramount = buyerliter * buyerrs;
+           System.out.println("buyer paying the amount:" + buyeramount);
+
+       }
+
+
+}
+class MyClass {
+    //Scanner so = new Scanner(System.in);
+
+   static float ownerprofit;
+   static float buyeramount;
+   static float selleramount;
+
+    void profit( float buyeramt, float selleramt )
+    {
+        buyeramount = buyeramt;
+        selleramount = selleramt;
+        ownerprofit = buyeramount - selleramount;
+
+        System.out.println("owner getting profit:" +ownerprofit);
+
+    }
+
+    public static void main(String[] args) {
+
+        String sellername,buyername;
+        float sellerliter,buyerliter;
+
+        Seller seller = new Seller();
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("enter seller name");
+        sellername = scanner.next();
+        System.out.println(" seller name:" + sellername);
+
+        System.out.println("enter seller selling milk");
+        sellerliter = Float.parseFloat(scanner.next());
+        System.out.println(" seller selling milk" + sellerliter);
+
+
+        seller.sellerdetails(sellername, sellerliter);
+        seller.sellerdisplay();
+        seller.sellercalculation();
+
+
+        System.out.println("enter the buyer name");
+        buyername = scanner.next();
+        System.out.println("buyername:" + buyername);
+
+        System.out.println("enter buyer getting milk");
+        buyerliter = Float.parseFloat(scanner.next());
+
+        if (sellerliter >= buyerliter) {
+            System.out.println("buyer can be getting milk:" + buyerliter);
+        } else {
+            System.out.println("milk is not available");
+        }
+
+        Buyer buyer = new Buyer();
+
+        buyer.buyerdetails(buyername, buyerliter);
+
+        buyer.buyerdisplay();
+
+        buyer.buyercalculation();
+
+        MyClass myclass = new MyClass();
+
+        myclass.profit(buyeramount,selleramount);
+
+
+
+        //sellleramount = seller.sellercalculation;
+        //buyeramount = buyer.buyercalculation();
+
+        //ownerprofit = (buyeramount -selleramount);
+        //System.out.println("owner getting the profit:" +ownerprofit);
+
+
+    }
+
+
+}
